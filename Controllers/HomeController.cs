@@ -30,7 +30,7 @@ namespace ConsumeProductApi.Controllers
                     client.BaseAddress = new Uri(baseURL);
                     try
                     {
-                        HttpResponseMessage getData = await client.GetAsync("GetAllProducts");
+                        HttpResponseMessage getData = await client.GetAsync("GetProduct");
 
                         if (getData.IsSuccessStatusCode)
                         {
@@ -72,7 +72,7 @@ namespace ConsumeProductApi.Controllers
                     client.BaseAddress = new Uri(baseURL);
                     try
                     {
-                        HttpResponseMessage getData = await client.PostAsJsonAsync("CreateNewProduct", product);
+                        HttpResponseMessage getData = await client.PostAsJsonAsync("PostProduct", product);
 
                         if (getData.IsSuccessStatusCode)
                         {
@@ -134,7 +134,7 @@ namespace ConsumeProductApi.Controllers
                     client.BaseAddress = new Uri(baseURL);
                     try
                     {
-                        HttpResponseMessage getData = await client.PutAsJsonAsync("UpdateExistingProduct/" + updateproduct.Id, updateproduct);
+                        HttpResponseMessage getData = await client.PutAsJsonAsync("PutProduct/" + updateproduct.Id, updateproduct);
 
                         if (getData.IsSuccessStatusCode)
                         {
@@ -167,7 +167,7 @@ namespace ConsumeProductApi.Controllers
                     client.BaseAddress = new Uri(baseURL);
                     try
                     {
-                        HttpResponseMessage getData = await client.DeleteAsync("DeleteExistingProduct/" + productid);
+                        HttpResponseMessage getData = await client.DeleteAsync("DeleteProduct/" + productid);
                         if (getData.IsSuccessStatusCode)
                         {
                             return RedirectToAction("Index", "Home");
